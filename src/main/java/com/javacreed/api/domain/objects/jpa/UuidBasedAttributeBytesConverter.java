@@ -1,14 +1,10 @@
 package com.javacreed.api.domain.objects.jpa;
 
-import javax.persistence.AttributeConverter;
-
 import com.javacreed.api.domain.objects.UuidBasedDomainObject;
 import com.javacreed.api.domain.objects.utils.UuidUtils;
 
 public abstract class UuidBasedAttributeBytesConverter<T extends UuidBasedDomainObject>
-    implements AttributeConverter<T, byte[]> {
-
-  protected abstract T convertNotNullToEntityAttribute(byte[] dbData);
+    extends ObjectBasedAttributeConverter<T, byte[]> {
 
   @Override
   public byte[] convertToDatabaseColumn(final T attribute) {
