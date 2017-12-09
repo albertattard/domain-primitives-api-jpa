@@ -6,6 +6,10 @@ import com.javacreed.api.domain.objects.optional.StringBasedDomainObject;
 public abstract class StringBasedAttributeConverter<T extends StringBasedDomainObject>
     extends ObjectBasedAttributeConverter<T, String> {
 
+  protected T convertNullToEntityAttribute() {
+    return null;
+  }
+
   @Override
   public String convertToDatabaseColumn(final T attribute) {
     return attribute == null ? null : attribute.getNullable();
@@ -13,6 +17,6 @@ public abstract class StringBasedAttributeConverter<T extends StringBasedDomainO
 
   @Override
   public T convertToEntityAttribute(final String dbData) {
-    return dbData == null ? null : convertNotNullToEntityAttribute(dbData);
+    return dbData == null ? convertNullToEntityAttribute() : convertNotNullToEntityAttribute(dbData);
   }
 }
