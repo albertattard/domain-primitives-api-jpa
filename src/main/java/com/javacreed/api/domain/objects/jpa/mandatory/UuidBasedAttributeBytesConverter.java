@@ -8,7 +8,7 @@ public abstract class UuidBasedAttributeBytesConverter<T extends UuidBasedDomain
 
   @Override
   public byte[] convertToDatabaseColumn(final T attribute) {
-    return attribute == null ? null : attribute.getBytes();
+    return attribute == null ? null : attribute.toBytes();
   }
 
   @Override
