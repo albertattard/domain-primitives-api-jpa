@@ -14,11 +14,14 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
     extends ObjectBasedAttributeConverter<T, Timestamp> {
 
   @Override
-  protected T convertNotNullToEntityAttribute(final Timestamp sqlTimestamp) {
-    return convertNotNullToEntityAttribute(sqlTimestamp.toLocalDateTime().atZone(ZoneId.systemDefault()));
+  protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
+    return Timestamp.valueOf(attribute.toLocalDateTime());
   }
 
-  protected T convertNotNullToEntityAttribute(final ZonedDateTime zonedDateTime) {
-    throw new UnsupportedOperationException();
+  @Override
+  protected T convertNotNullToEntityAttribute(final Timestamp dbData) {
+    return convertNotNullToEntityAttribute(dbData.toLocalDateTime().atZone(ZoneId.systemDefault()));
   }
+
+  protected abstract T convertNotNullToEntityAttribute(final ZonedDateTime dbData);
 }
