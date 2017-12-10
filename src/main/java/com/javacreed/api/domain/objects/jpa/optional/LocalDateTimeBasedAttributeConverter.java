@@ -12,12 +12,7 @@ public abstract class LocalDateTimeBasedAttributeConverter<T extends LocalDateTi
     extends ObjectBasedAttributeConverter<T, Timestamp> {
 
   @Override
-  public Timestamp convertToDatabaseColumn(final T locDateTime) {
-    return locDateTime == null ? null : locDateTime.map(Timestamp::valueOf).get();
-  }
-
-  @Override
-  public T convertToEntityAttribute(final Timestamp sqlTimestamp) {
-    return sqlTimestamp == null ? null : convertNotNullToEntityAttribute(sqlTimestamp);
+  protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
+    return attribute.map(Timestamp::valueOf).get();
   }
 }

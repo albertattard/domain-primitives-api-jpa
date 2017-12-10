@@ -12,6 +12,11 @@ public class ZonedDateTimeBasedAttributeConverterTest {
 
   public static class TestConverter extends ZonedDateTimeBasedAttributeConverter<TestField> {
     @Override
+    protected Timestamp convertNotNullToDatabaseColumn(final TestField attribute) {
+      throw new UnsupportedOperationException();
+    }
+
+    @Override
     protected TestField convertNotNullToEntityAttribute(final ZonedDateTime zonedDateTime) {
       return new TestField(zonedDateTime);
     }

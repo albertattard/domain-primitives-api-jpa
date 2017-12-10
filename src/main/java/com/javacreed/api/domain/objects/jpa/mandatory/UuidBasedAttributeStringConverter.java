@@ -7,12 +7,7 @@ public abstract class UuidBasedAttributeStringConverter<T extends UuidBasedDomai
     extends ObjectBasedAttributeConverter<T, String> {
 
   @Override
-  public String convertToDatabaseColumn(final T attribute) {
-    return attribute == null ? null : attribute.toFormattedString();
-  }
-
-  @Override
-  public T convertToEntityAttribute(final String dbData) {
-    return dbData == null ? null : convertNotNullToEntityAttribute(dbData);
+  protected String convertNotNullToDatabaseColumn(final T attribute) {
+    return attribute.toFormattedString();
   }
 }

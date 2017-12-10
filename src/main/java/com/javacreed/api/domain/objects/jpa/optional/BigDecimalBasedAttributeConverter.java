@@ -9,12 +9,7 @@ public abstract class BigDecimalBasedAttributeConverter<T extends BigDecimalBase
     extends ObjectBasedAttributeConverter<T, BigDecimal> {
 
   @Override
-  public BigDecimal convertToDatabaseColumn(final T attribute) {
-    return attribute == null ? null : attribute.getValue().orElse(null);
-  }
-
-  @Override
-  public T convertToEntityAttribute(final BigDecimal dbData) {
-    return dbData == null ? null : convertNotNullToEntityAttribute(dbData);
+  protected BigDecimal convertNotNullToDatabaseColumn(final T attribute) {
+    return attribute.getValue().orElse(null);
   }
 }

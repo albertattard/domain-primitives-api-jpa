@@ -21,14 +21,4 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
   protected T convertNotNullToEntityAttribute(final ZonedDateTime zonedDateTime) {
     throw new UnsupportedOperationException();
   }
-
-  @Override
-  public Timestamp convertToDatabaseColumn(final T zonedDateTime) {
-    return zonedDateTime == null ? null : Timestamp.valueOf(zonedDateTime.toLocalDateTime());
-  }
-
-  @Override
-  public T convertToEntityAttribute(final Timestamp sqlTimestamp) {
-    return sqlTimestamp == null ? convertNullToEntityAttribute() : convertNotNullToEntityAttribute(sqlTimestamp);
-  }
 }

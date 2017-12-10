@@ -7,12 +7,7 @@ public abstract class StringBasedAttributeConverter<T extends StringBasedDomainO
     extends ObjectBasedAttributeConverter<T, String> {
 
   @Override
-  public String convertToDatabaseColumn(final T attribute) {
-    return attribute == null ? null : attribute.getValue();
-  }
-
-  @Override
-  public T convertToEntityAttribute(final String dbData) {
-    return dbData == null ? null : convertNotNullToEntityAttribute(dbData);
+  protected String convertNotNullToDatabaseColumn(final T attribute) {
+    return attribute.getValue();
   }
 }
