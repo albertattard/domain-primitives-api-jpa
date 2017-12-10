@@ -1,0 +1,34 @@
+package com.javacreed.api.domain.objects.jpa.mandatory;
+
+import java.sql.Timestamp;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+import javax.persistence.Converter;
+
+import com.javacreed.api.domain.objects.jpa.ObjectBasedAttributeConverter;
+import com.javacreed.api.domain.objects.mandatory.ZonedDateTimeBasedDomainObject;
+
+@Converter(autoApply = true)
+public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTimeBasedDomainObject>
+    extends ObjectBasedAttributeConverter<T, Timestamp> {
+
+  @Override
+  protected T convertNotNullToEntityAttribute(final Timestamp sqlTimestamp) {
+    return convertNotNullToEntityAttribute(sqlTimestamp.toLocalDateTime().atZone(ZoneId.systemDefault()));
+  }
+
+  protected T convertNotNullToEntityAttribute(final ZonedDateTime zonedDateTime) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Timestamp convertToDatabaseColumn(final T zonedDateTime) {
+    return zonedDateTime == null ? null : Timestamp.valueOf(zonedDateTime.toLocalDateTime());
+  }
+
+  @Override
+  public T convertToEntityAttribute(final Timestamp sqlTimestamp) {
+    return sqlTimestamp == null ? convertNullToEntityAttribute() : convertNotNullToEntityAttribute(sqlTimestamp);
+  }
+}

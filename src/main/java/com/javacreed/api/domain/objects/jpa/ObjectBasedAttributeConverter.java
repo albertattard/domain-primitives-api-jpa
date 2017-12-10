@@ -6,4 +6,8 @@ public abstract class ObjectBasedAttributeConverter<T, D> implements AttributeCo
 
   protected abstract T convertNotNullToEntityAttribute(D dbData);
 
+  protected T convertNullToEntityAttribute() {
+    return null;
+  }
+
 }
