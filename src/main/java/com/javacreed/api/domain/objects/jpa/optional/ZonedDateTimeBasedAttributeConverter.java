@@ -15,7 +15,7 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
 
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toLocalDateTime().map(Timestamp::valueOf).orElse(null);
+    return attribute.toUtcLocalDateTime().map(Timestamp::valueOf).orElse(null);
   }
 
   @Override
