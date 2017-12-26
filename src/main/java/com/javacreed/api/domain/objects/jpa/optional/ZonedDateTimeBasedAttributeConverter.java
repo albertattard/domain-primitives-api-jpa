@@ -15,12 +15,12 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
 
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toUtcLocalDateTime().map(Timestamp::valueOf).orElse(null);
+    return attribute.toUtcTimestamp().orElse(null);
   }
 
   @Override
   protected T convertNotNullToEntityAttribute(final Timestamp dbData) {
-    return convertNotNullToEntityAttribute(dbData.toLocalDateTime().atZone(ZoneId.systemDefault()));
+    return convertNotNullToEntityAttribute(dbData.toLocalDateTime().atZone(ZoneId.of("UTC")));
   }
 
   protected abstract T convertNotNullToEntityAttribute(final ZonedDateTime dbData);

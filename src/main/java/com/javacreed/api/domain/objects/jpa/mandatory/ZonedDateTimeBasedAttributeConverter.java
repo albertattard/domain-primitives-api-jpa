@@ -13,17 +13,15 @@ import com.javacreed.api.domain.objects.mandatory.ZonedDateTimeBasedDomainObject
 public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTimeBasedDomainObject>
     extends ObjectBasedAttributeConverter<T, Timestamp> {
 
-  private static final ZoneId ZONE_UTC = ZoneId.of("UTC");
-
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
-    return Timestamp.valueOf(attribute.toUtcLocalDateTime());
+    return attribute.toUtcTimestamp();
   }
 
   @Override
   protected T convertNotNullToEntityAttribute(final Timestamp dbData) {
     return convertNotNullToEntityAttribute(dbData.toLocalDateTime()
-                                                 .atZone(ZonedDateTimeBasedAttributeConverter.ZONE_UTC));
+                                                 .atZone(ZoneId.of("UTC")));
   }
 
   protected abstract T convertNotNullToEntityAttribute(final ZonedDateTime dbData);
