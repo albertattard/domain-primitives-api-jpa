@@ -20,8 +20,7 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
 
   @Override
   protected T convertNotNullToEntityAttribute(final Timestamp dbData) {
-    return convertNotNullToEntityAttribute(dbData.toLocalDateTime()
-                                                 .atZone(ZoneId.of("UTC")));
+    return convertNotNullToEntityAttribute(dbData.toLocalDateTime().atZone(ZoneId.of("UTC")));
   }
 
   protected abstract T convertNotNullToEntityAttribute(final ZonedDateTime dbData);
