@@ -6,7 +6,6 @@ import java.time.ZonedDateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.javacreed.api.domain.primitives.jpa.mandatory.ZonedDateTimeBasedAttributeConverter;
 import com.javacreed.api.domain.primitives.mandatory.ZonedDateTimeBasedDomainObject;
 
 public class ZonedDateTimeBasedAttributeConverterTest {
