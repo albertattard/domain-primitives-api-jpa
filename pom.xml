@@ -4,12 +4,12 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javacreed.api</groupId>
-	<artifactId>domain-objects-api-jpa</artifactId>
+	<artifactId>domain-primitives-api-jpa</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>Domain Objects API - JPA Extension</name>
-	<description>This project provides integration between the domain objects API and JPA libraries</description>
-	<url>https://github.com/javacreed/domain-objects-api-jpa</url>
+	<name>Domain Primitives API - JPA Extension</name>
+	<description>This project provides integration between the domain primitives API and JPA libraries</description>
+	<url>https://github.com/javacreed/domain-primitives-api-jpa</url>
 	<inceptionYear>2017</inceptionYear>
 
 	<contributors>
@@ -28,9 +28,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git://github.com/javacreed/domain-objects-api.git-jpa</connection>
-		<developerConnection>scm:git:git://github.com/javacreed/domain-objects-api-jpa.git</developerConnection>
-		<url>https://github.com/javacreed/domain-objects-api-jpa</url>
+		<connection>scm:git:git://github.com/javacreed/domain-primitives-api.git-jpa</connection>
+		<developerConnection>scm:git:git://github.com/javacreed/domain-primitives-api-jpa.git</developerConnection>
+		<url>https://github.com/javacreed/domain-primitives-api-jpa</url>
 	</scm>
 
 	<properties>
