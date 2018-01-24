@@ -6,12 +6,11 @@ import java.time.ZonedDateTime;
 
 import javax.persistence.Converter;
 
-import com.javacreed.api.domain.objects.jpa.ObjectBasedAttributeConverter;
 import com.javacreed.api.domain.objects.mandatory.ZonedDateTimeBasedDomainObject;
 
 @Converter(autoApply = true)
 public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTimeBasedDomainObject>
-    extends ObjectBasedAttributeConverter<T, Timestamp> {
+    extends MismatchedObjectBasedAttributeConverter<ZonedDateTime, T, Timestamp> {
 
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
@@ -19,9 +18,7 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
   }
 
   @Override
-  protected T convertNotNullToEntityAttribute(final Timestamp dbData) {
-    return convertNotNullToEntityAttribute(dbData.toLocalDateTime().atZone(ZoneId.of("UTC")));
+  protected ZonedDateTime convertNotNullToValue(final Timestamp dbData) {
+    return dbData.toLocalDateTime().atZone(ZoneId.of("UTC"));
   }
-
-  protected abstract T convertNotNullToEntityAttribute(final ZonedDateTime dbData);
 }

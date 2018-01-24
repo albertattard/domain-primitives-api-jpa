@@ -7,8 +7,6 @@ import com.javacreed.api.domain.objects.primitives.BooleanBasedDomainObject;
 public abstract class BooleanBasedAttributeConverter<T extends BooleanBasedDomainObject>
     implements AttributeConverter<T, Boolean> {
 
-  protected abstract T convertNotNullToEntityAttribute(boolean dbData);
-
   @Override
   public Boolean convertToDatabaseColumn(final T attribute) {
     return attribute == null ? null : attribute.getValue();
@@ -16,6 +14,8 @@ public abstract class BooleanBasedAttributeConverter<T extends BooleanBasedDomai
 
   @Override
   public T convertToEntityAttribute(final Boolean dbData) {
-    return dbData == null ? null : convertNotNullToEntityAttribute(dbData);
+    return dbData == null ? null : createDomainObject(dbData);
   }
+
+  protected abstract T createDomainObject(boolean dbData);
 }

@@ -1,13 +1,19 @@
 package com.javacreed.api.domain.objects.jpa.optional;
 
-import com.javacreed.api.domain.objects.jpa.ObjectBasedAttributeConverter;
+import java.util.UUID;
+
 import com.javacreed.api.domain.objects.optional.UuidBasedDomainObject;
 
 public abstract class UuidBasedAttributeStringConverter<T extends UuidBasedDomainObject>
-    extends ObjectBasedAttributeConverter<T, String> {
+    extends MismatchedObjectBasedAttributeConverter<UUID, T, String> {
 
   @Override
   protected String convertNotNullToDatabaseColumn(final T attribute) {
     return attribute.getFormatted().orElse(null);
+  }
+
+  @Override
+  protected UUID convertNotNullToValue(final String dbData) {
+    return UUID.fromString(dbData);
   }
 }

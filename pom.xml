@@ -130,7 +130,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.javacreed.api</groupId>
-			<artifactId>domain-objects-api</artifactId>
+			<artifactId>domain-primitives-api</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 		<dependency>

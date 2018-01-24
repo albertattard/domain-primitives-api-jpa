@@ -12,13 +12,8 @@ public class ZonedDateTimeBasedAttributeConverterTest {
 
   public static class TestConverter extends ZonedDateTimeBasedAttributeConverter<TestField> {
     @Override
-    protected Timestamp convertNotNullToDatabaseColumn(final TestField attribute) {
-      throw new UnsupportedOperationException();
-    }
-
-    @Override
-    protected TestField convertNotNullToEntityAttribute(final ZonedDateTime zonedDateTime) {
-      return new TestField(zonedDateTime);
+    protected TestField createDomainObject(final ZonedDateTime dbData) {
+      return new TestField(dbData);
     }
   }
 
@@ -31,7 +26,7 @@ public class ZonedDateTimeBasedAttributeConverterTest {
   @Test
   public void test() {
     final long millis = 1511940600000L; /* 29th November 2017 8:30am */
-    final TestField field = new TestConverter().convertNotNullToEntityAttribute(new Timestamp(millis));
+    final TestField field = new TestConverter().convertToEntityAttribute(new Timestamp(millis));
     Assert.assertEquals("2017-11-29 08:30 UTC", field.format("yyyy-MM-dd hh:mm z"));
   }
 }
