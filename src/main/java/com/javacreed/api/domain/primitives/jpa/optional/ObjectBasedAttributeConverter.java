@@ -2,7 +2,7 @@ package com.javacreed.api.domain.primitives.jpa.optional;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.optional.ObjectBasedDomainObject;
+import com.javacreed.api.domain.primitives.optional.ObjectBasedDomainPrimitive;
 
 /**
  *
@@ -13,7 +13,7 @@ import com.javacreed.api.domain.primitives.optional.ObjectBasedDomainObject;
  * @param <D>
  *          the type of the database column
  */
-public abstract class ObjectBasedAttributeConverter<T extends ObjectBasedDomainObject<D>, D>
+public abstract class ObjectBasedAttributeConverter<T extends ObjectBasedDomainPrimitive<D>, D>
     implements AttributeConverter<T, D> {
 
   protected D convertNotNullToDatabaseColumn(final T attribute) {

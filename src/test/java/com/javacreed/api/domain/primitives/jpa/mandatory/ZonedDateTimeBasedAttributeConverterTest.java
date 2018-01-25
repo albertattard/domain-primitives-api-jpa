@@ -6,7 +6,7 @@ import java.time.ZonedDateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.javacreed.api.domain.primitives.mandatory.ZonedDateTimeBasedDomainObject;
+import com.javacreed.api.domain.primitives.mandatory.ZonedDateTimeBasedDomainPrimitive;
 
 public class ZonedDateTimeBasedAttributeConverterTest {
 
@@ -17,7 +17,7 @@ public class ZonedDateTimeBasedAttributeConverterTest {
     }
   }
 
-  public static class TestField extends ZonedDateTimeBasedDomainObject {
+  public static class TestField extends ZonedDateTimeBasedDomainPrimitive {
     public TestField(final ZonedDateTime value) throws NullPointerException {
       super(value);
     }

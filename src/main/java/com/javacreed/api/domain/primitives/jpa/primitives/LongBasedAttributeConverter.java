@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.primitives;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.lang.LongBasedDomainObject;
+import com.javacreed.api.domain.primitives.lang.LongBasedDomainPrimitive;
 
-public abstract class LongBasedAttributeConverter<T extends LongBasedDomainObject>
+public abstract class LongBasedAttributeConverter<T extends LongBasedDomainPrimitive>
     implements AttributeConverter<T, Long> {
 
   @Override

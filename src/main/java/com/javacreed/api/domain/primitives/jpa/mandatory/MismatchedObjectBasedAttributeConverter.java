@@ -3,10 +3,10 @@ package com.javacreed.api.domain.primitives.jpa.mandatory;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import com.javacreed.api.domain.primitives.mandatory.ObjectBasedDomainObject;
+import com.javacreed.api.domain.primitives.mandatory.ObjectBasedDomainPrimitive;
 
 @Converter(autoApply = true)
-public abstract class MismatchedObjectBasedAttributeConverter<V, T extends ObjectBasedDomainObject<V>, D>
+public abstract class MismatchedObjectBasedAttributeConverter<V, T extends ObjectBasedDomainPrimitive<V>, D>
     implements AttributeConverter<T, D> {
 
   protected abstract D convertNotNullToDatabaseColumn(final T value);

@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.primitives;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.lang.IntBasedDomainObject;
+import com.javacreed.api.domain.primitives.lang.IntBasedDomainPrimitive;
 
-public abstract class IntBasedAttributeConverter<T extends IntBasedDomainObject>
+public abstract class IntBasedAttributeConverter<T extends IntBasedDomainPrimitive>
     implements AttributeConverter<T, Integer> {
 
   @Override

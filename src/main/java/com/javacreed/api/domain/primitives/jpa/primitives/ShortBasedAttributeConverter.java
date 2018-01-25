@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.primitives;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.lang.ShortBasedDomainObject;
+import com.javacreed.api.domain.primitives.lang.ShortBasedDomainPrimitive;
 
-public abstract class ShortBasedAttributeConverter<T extends ShortBasedDomainObject>
+public abstract class ShortBasedAttributeConverter<T extends ShortBasedDomainPrimitive>
     implements AttributeConverter<T, Short> {
 
   protected abstract T convertNotNullToEntityAttribute(short dbData);

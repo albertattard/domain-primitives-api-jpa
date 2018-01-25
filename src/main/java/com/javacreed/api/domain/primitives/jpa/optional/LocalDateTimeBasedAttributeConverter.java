@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Converter;
 
-import com.javacreed.api.domain.primitives.optional.LocalDateTimeBasedDomainObject;
+import com.javacreed.api.domain.primitives.optional.LocalDateTimeBasedDomainPrimitive;
 
 @Converter(autoApply = true)
-public abstract class LocalDateTimeBasedAttributeConverter<T extends LocalDateTimeBasedDomainObject>
+public abstract class LocalDateTimeBasedAttributeConverter<T extends LocalDateTimeBasedDomainPrimitive>
     extends MismatchedObjectBasedAttributeConverter<LocalDateTime, T, Timestamp> {
 
   @Override

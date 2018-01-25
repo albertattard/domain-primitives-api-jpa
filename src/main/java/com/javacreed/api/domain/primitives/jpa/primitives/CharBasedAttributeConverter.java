@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.primitives;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.lang.CharBasedDomainObject;
+import com.javacreed.api.domain.primitives.lang.CharBasedDomainPrimitive;
 
-public abstract class CharBasedAttributeConverter<T extends CharBasedDomainObject>
+public abstract class CharBasedAttributeConverter<T extends CharBasedDomainPrimitive>
     implements AttributeConverter<T, Character> {
 
   protected abstract T convertNotNullToEntityAttribute(char dbData);

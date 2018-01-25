@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.primitives;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.lang.BooleanBasedDomainObject;
+import com.javacreed.api.domain.primitives.lang.BooleanBasedDomainPrimitive;
 
-public abstract class BooleanBasedAttributeConverter<T extends BooleanBasedDomainObject>
+public abstract class BooleanBasedAttributeConverter<T extends BooleanBasedDomainPrimitive>
     implements AttributeConverter<T, Boolean> {
 
   @Override

@@ -2,10 +2,10 @@ package com.javacreed.api.domain.primitives.jpa.mandatory;
 
 import java.util.UUID;
 
-import com.javacreed.api.domain.primitives.mandatory.UuidBasedDomainObject;
+import com.javacreed.api.domain.primitives.mandatory.UuidBasedDomainPrimitive;
 import com.javacreed.api.domain.primitives.utils.UuidUtils;
 
-public abstract class UuidBasedAttributeBytesConverter<T extends UuidBasedDomainObject>
+public abstract class UuidBasedAttributeBytesConverter<T extends UuidBasedDomainPrimitive>
     extends MismatchedObjectBasedAttributeConverter<UUID, T, byte[]> {
 
   @Override

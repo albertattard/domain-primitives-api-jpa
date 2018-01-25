@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.optional;
 
 import java.util.UUID;
 
-import com.javacreed.api.domain.primitives.optional.UuidBasedDomainObject;
+import com.javacreed.api.domain.primitives.optional.UuidBasedDomainPrimitive;
 
-public abstract class UuidBasedAttributeStringConverter<T extends UuidBasedDomainObject>
+public abstract class UuidBasedAttributeStringConverter<T extends UuidBasedDomainPrimitive>
     extends MismatchedObjectBasedAttributeConverter<UUID, T, String> {
 
   @Override

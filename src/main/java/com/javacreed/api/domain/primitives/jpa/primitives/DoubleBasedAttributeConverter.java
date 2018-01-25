@@ -2,9 +2,9 @@ package com.javacreed.api.domain.primitives.jpa.primitives;
 
 import javax.persistence.AttributeConverter;
 
-import com.javacreed.api.domain.primitives.lang.DoubleBasedDomainObject;
+import com.javacreed.api.domain.primitives.lang.DoubleBasedDomainPrimitive;
 
-public abstract class DoubleBasedAttributeConverter<T extends DoubleBasedDomainObject>
+public abstract class DoubleBasedAttributeConverter<T extends DoubleBasedDomainPrimitive>
     implements AttributeConverter<T, Double> {
 
   protected abstract T convertNotNullToEntityAttribute(double dbData);

@@ -6,10 +6,10 @@ import java.time.ZonedDateTime;
 
 import javax.persistence.Converter;
 
-import com.javacreed.api.domain.primitives.mandatory.ZonedDateTimeBasedDomainObject;
+import com.javacreed.api.domain.primitives.mandatory.ZonedDateTimeBasedDomainPrimitive;
 
 @Converter(autoApply = true)
-public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTimeBasedDomainObject>
+public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTimeBasedDomainPrimitive>
     extends MismatchedObjectBasedAttributeConverter<ZonedDateTime, T, Timestamp> {
 
   @Override
