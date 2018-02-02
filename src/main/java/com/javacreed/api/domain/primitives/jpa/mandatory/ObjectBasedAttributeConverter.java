@@ -31,12 +31,12 @@ public abstract class ObjectBasedAttributeConverter<T extends ObjectBasedDomainP
 
   @Override
   public T convertToEntityAttribute(final D dbData) {
-    return dbData == null ? createNullEquivalentDomainObject() : createDomainObject(dbData);
+    return dbData == null ? createNullEquivalentDomainPrimitive() : createDomainPrimitive(dbData);
   }
 
-  protected abstract T createDomainObject(D dbData);
+  protected abstract T createDomainPrimitive(D dbData);
 
-  protected T createNullEquivalentDomainObject() {
+  protected T createNullEquivalentDomainPrimitive() {
     return null;
   }
 }

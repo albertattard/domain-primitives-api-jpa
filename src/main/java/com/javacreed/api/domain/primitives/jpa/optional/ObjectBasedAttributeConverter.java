@@ -17,7 +17,7 @@ public abstract class ObjectBasedAttributeConverter<T extends ObjectBasedDomainP
     implements AttributeConverter<T, D> {
 
   protected D convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.getNullable();
+    return attribute.orNull();
   }
 
   protected D convertNullToDatabaseColumn() {
@@ -31,8 +31,8 @@ public abstract class ObjectBasedAttributeConverter<T extends ObjectBasedDomainP
 
   @Override
   public T convertToEntityAttribute(final D dbData) {
-    return createDomainObject(dbData);
+    return createDomainPrimitive(dbData);
   }
 
-  protected abstract T createDomainObject(D dbData);
+  protected abstract T createDomainPrimitive(D dbData);
 }

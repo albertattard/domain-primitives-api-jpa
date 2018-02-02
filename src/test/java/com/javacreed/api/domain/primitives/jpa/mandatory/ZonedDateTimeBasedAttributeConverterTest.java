@@ -12,7 +12,7 @@ public class ZonedDateTimeBasedAttributeConverterTest {
 
   public static class TestConverter extends ZonedDateTimeBasedAttributeConverter<TestField> {
     @Override
-    protected TestField createDomainObject(final ZonedDateTime dbData) {
+    protected TestField createDomainPrimitive(final ZonedDateTime dbData) {
       return new TestField(dbData);
     }
   }

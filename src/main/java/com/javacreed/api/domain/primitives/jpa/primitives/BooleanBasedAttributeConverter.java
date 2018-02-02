@@ -14,8 +14,8 @@ public abstract class BooleanBasedAttributeConverter<T extends BooleanBasedDomai
 
   @Override
   public T convertToEntityAttribute(final Boolean dbData) {
-    return dbData == null ? null : createDomainObject(dbData);
+    return dbData == null ? null : createDomainPrimitive(dbData);
   }
 
-  protected abstract T createDomainObject(boolean dbData);
+  protected abstract T createDomainPrimitive(boolean dbData);
 }

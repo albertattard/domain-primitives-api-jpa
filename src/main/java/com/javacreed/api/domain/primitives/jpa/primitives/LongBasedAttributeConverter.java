@@ -14,8 +14,8 @@ public abstract class LongBasedAttributeConverter<T extends LongBasedDomainPrimi
 
   @Override
   public T convertToEntityAttribute(final Long dbData) {
-    return dbData == null ? null : createDomainObject(dbData);
+    return dbData == null ? null : createDomainPrimitive(dbData);
   }
 
-  protected abstract T createDomainObject(long dbData);
+  protected abstract T createDomainPrimitive(long dbData);
 }

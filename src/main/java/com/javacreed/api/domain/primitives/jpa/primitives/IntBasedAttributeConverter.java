@@ -14,8 +14,8 @@ public abstract class IntBasedAttributeConverter<T extends IntBasedDomainPrimiti
 
   @Override
   public T convertToEntityAttribute(final Integer dbData) {
-    return dbData == null ? null : createDomainObject(dbData);
+    return dbData == null ? null : createDomainPrimitive(dbData);
   }
 
-  protected abstract T createDomainObject(int dbData);
+  protected abstract T createDomainPrimitive(int dbData);
 }

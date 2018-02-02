@@ -25,15 +25,15 @@ public abstract class MismatchedObjectBasedAttributeConverter<V, T extends Objec
   @Override
   public T convertToEntityAttribute(final D dbData) {
     if (dbData == null) {
-      return createNullEquivalentDomainObject();
+      return createNullEquivalentDomainPrimitive();
     }
 
-    return createDomainObject(convertNotNullToValue(dbData));
+    return createDomainPrimitive(convertNotNullToValue(dbData));
   }
 
-  protected abstract T createDomainObject(V dbData);
+  protected abstract T createDomainPrimitive(V dbData);
 
-  protected T createNullEquivalentDomainObject() {
+  protected T createNullEquivalentDomainPrimitive() {
     return null;
   }
 }
