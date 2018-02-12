@@ -12,13 +12,15 @@ import com.javacreed.api.domain.primitives.optional.ZonedDateTimeBasedDomainPrim
 public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTimeBasedDomainPrimitive>
     extends MismatchedObjectBasedAttributeConverter<ZonedDateTime, T, Timestamp> {
 
+  private static final ZoneId UTC_ZONE_ID = ZoneId.of("UTC");
+
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T value) {
-    return value.toUtcTimestamp().orElse(null);
+    return value.toUtcSqlTimestamp().orElse(null);
   }
 
   @Override
   protected ZonedDateTime convertNotNullToValue(final Timestamp dbData) {
-    return dbData.toLocalDateTime().atZone(ZoneId.of("UTC"));
+    return dbData.toLocalDateTime().atZone(ZonedDateTimeBasedAttributeConverter.UTC_ZONE_ID);
   }
 }

@@ -1,4 +1,4 @@
-package com.javacreed.api.domain.primitives.jpa.primitives;
+package com.javacreed.api.domain.primitives.jpa.lang;
 
 import javax.persistence.AttributeConverter;
 

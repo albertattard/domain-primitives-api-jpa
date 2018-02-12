@@ -13,7 +13,7 @@ public abstract class LocalDateTimeBasedAttributeConverter<T extends LocalDateTi
 
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.map(Timestamp::valueOf);
+    return attribute.toSqlTimestamp();
   }
 
   @Override
