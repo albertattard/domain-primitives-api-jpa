@@ -9,7 +9,7 @@ public abstract class UuidBasedAttributeStringConverter<T extends UuidBasedDomai
 
   @Override
   protected String convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toFormattedString();
+    return attribute.toString();
   }
 
   @Override
