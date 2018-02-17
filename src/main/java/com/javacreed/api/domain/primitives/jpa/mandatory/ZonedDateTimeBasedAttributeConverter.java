@@ -14,7 +14,7 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
 
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toUtcTimestamp();
+    return attribute.toUtcSqlTimestamp();
   }
 
   @Override
