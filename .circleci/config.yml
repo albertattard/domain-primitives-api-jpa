@@ -26,6 +26,8 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
+      - run: mvn install:install-file -DgroupId=com.javacreed.api -DartifactId=domain-primitives-api -Dversion=1.0.0 -Dpackaging=jar -Dfile=/home/circleci/repo/target/domain-primitives-api-1.0.0.jar
+
       - run: mvn package
 
       - store_test_results:
