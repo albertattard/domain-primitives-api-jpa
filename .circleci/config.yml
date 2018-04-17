@@ -19,6 +19,7 @@ jobs:
           
       - run: curl https://circleci.com/api/v1.1/project/github/javacreed/domain-primitives-api/8/artifacts?circle-token=$CIRCLE_TOKEN | grep -o 'https://[^"]*' > artifacts.txt
       - run: <artifacts.txt xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
+      - run: mv domain-primitives-api-1.0.0.jar\?circle-token\=$CIRCLE_TOKEN domain-primitives-api-1.0.0.jar
       - run: mvn install:install-file -DgroupId=com.javacreed.api -DartifactId=domain-primitives-api -Dversion=1.0.0 -Dpackaging=jar -Dfile=domain-primitives-api-1.0.0.jar
 
       - run: mvn dependency:go-offline
