@@ -25,8 +25,8 @@ public class ZonedDateTimeBasedAttributeConverterTest {
 
   @Test
   public void test() {
-    final long millis = 1511940600000L; /* 29th November 2017 8:30am */
+    final long millis = 1511940600000L; /* Wednesday, November 29, 2017 8:30:00 AM GMT+01:00 */
     final TestField field = new TestConverter().convertToEntityAttribute(new Timestamp(millis));
-    Assert.assertEquals("2017-11-29 08:30 UTC", field.format("yyyy-MM-dd hh:mm z"));
+    Assert.assertEquals("2017-11-29 07:30 UTC", field.format("yyyy-MM-dd hh:mm z"));
   }
 }
