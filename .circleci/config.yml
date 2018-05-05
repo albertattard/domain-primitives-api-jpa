@@ -1,34 +1,26 @@
-# Java Maven CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
 version: 2
 jobs:
   build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
 
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+
     environment:
-      # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
     
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          
+      - run: curl https://circleci.com/api/v1.1/project/github/javacreed/domain-primitives-api/8/artifacts?circle-token=$CIRCLE_TOKEN | grep -o 'https://[^"]*' > artifacts.txt
+      - run: <artifacts.txt xargs -P4 -I % wget %?circle-token=$CIRCLE_TOKEN
+      - run: mv domain-primitives-api-1.0.0.jar\?circle-token\=$CIRCLE_TOKEN domain-primitives-api-1.0.0.jar
+      - run: mvn install:install-file -DgroupId=com.javacreed.api -DartifactId=domain-primitives-api -Dversion=1.0.0 -Dpackaging=jar -Dfile=domain-primitives-api-1.0.0.jar
 
       - run: mvn dependency:go-offline
 
@@ -36,7 +28,11 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-        
-      # run tests!
-      - run: mvn integration-test
 
+      - run: mvn package
+
+      - store_test_results:
+          path: target/surefire-reports
+
+      - store_artifacts:
+          path: target/domain-primitives-api-jpa-1.0.0.jar
