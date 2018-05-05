@@ -1,13 +1,14 @@
-package com.javacreed.api.domain.primitives.jpa.mandatory;
+package com.javacreed.api.domain.primitives.jpa.optional;
 
 import java.sql.Timestamp;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.javacreed.api.domain.primitives.mandatory.ZonedDateTimeBasedDomainPrimitive;
+import com.javacreed.api.domain.primitives.optional.ZonedDateTimeBasedDomainPrimitive;
 
 public class ZonedDateTimeBasedAttributeConverterTest {
 
@@ -20,7 +21,7 @@ public class ZonedDateTimeBasedAttributeConverterTest {
 
   public static class TestField extends ZonedDateTimeBasedDomainPrimitive {
     public TestField(final ZonedDateTime value) throws NullPointerException {
-      super(value);
+      super(Optional.ofNullable(value));
     }
   }
 
@@ -31,7 +32,7 @@ public class ZonedDateTimeBasedAttributeConverterTest {
 
     /* All dates/times are read in GMT/UTC timezone */
     final TestField read = converter.convertToEntityAttribute(new Timestamp(millis));
-    Assert.assertEquals("2017-11-29 07:30 +0000", read.format("yyyy-MM-dd hh:mm Z"));
+    Assert.assertEquals("2017-11-29 07:30 +0000", read.format("yyyy-MM-dd hh:mm Z").get());
 
     /* All dates/times need to be converted to GMT/UTC before written into the database */
     final ZoneId zone = ZoneId.of("Europe/Malta");

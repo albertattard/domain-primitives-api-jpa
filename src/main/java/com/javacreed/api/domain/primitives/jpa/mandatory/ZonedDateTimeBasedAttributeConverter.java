@@ -1,7 +1,7 @@
 package com.javacreed.api.domain.primitives.jpa.mandatory;
 
 import java.sql.Timestamp;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 import javax.persistence.Converter;
@@ -14,11 +14,11 @@ public abstract class ZonedDateTimeBasedAttributeConverter<T extends ZonedDateTi
 
   @Override
   protected Timestamp convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toUtcSqlTimestamp();
+    return attribute.toSqlTimestamp();
   }
 
   @Override
   protected ZonedDateTime convertNotNullToValue(final Timestamp dbData) {
-    return dbData.toLocalDateTime().atZone(ZoneId.of("UTC"));
+    return ZonedDateTime.ofInstant(dbData.toInstant(), ZoneOffset.UTC);
   }
 }
