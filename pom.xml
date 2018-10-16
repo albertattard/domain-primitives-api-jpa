@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 	<name>Domain Primitives API - JPA Extension</name>
 	<description>This project provides integration between the domain primitives API and JPA libraries</description>
-	<url>https://github.com/javacreed/domain-primitives-api-jpa</url>
+	<url>https://github.com/javacreed/${project.artifactId}</url>
 	<inceptionYear>2017</inceptionYear>
 
 	<contributors>
@@ -28,9 +28,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git://github.com/javacreed/domain-primitives-api.git-jpa</connection>
-		<developerConnection>scm:git:git://github.com/javacreed/domain-primitives-api-jpa.git</developerConnection>
-		<url>https://github.com/javacreed/domain-primitives-api-jpa</url>
+		<connection>scm:git:git://github.com/javacreed/${project.artifactId}</connection>
+		<developerConnection>scm:git:git://github.com/javacreed/${project.artifactId}.git</developerConnection>
+		<url>https://github.com/javacreed/${project.artifactId}</url>
 	</scm>
 
 	<properties>
@@ -42,7 +42,7 @@
 		<surefire.version>2.20.1</surefire.version>
 		<jacoco.version>0.7.9</jacoco.version>
 		<reports.version>2.9</reports.version>
-		<google.guava.version>25.0-jre</google.guava.version>
+		<google.guava.version>26.0-jre</google.guava.version>
 		<javax.persistence.version>2.2</javax.persistence.version>
 		<junit.version>4.12</junit.version>
 	</properties>
