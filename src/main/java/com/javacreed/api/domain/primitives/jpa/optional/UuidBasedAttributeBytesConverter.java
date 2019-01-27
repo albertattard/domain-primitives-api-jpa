@@ -10,11 +10,11 @@ public abstract class UuidBasedAttributeBytesConverter<T extends UuidBasedDomain
 
   @Override
   protected byte[] convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toBytes().orElse(null);
+    return attribute.asBytes().orElse(null);
   }
 
   @Override
   protected UUID convertNotNullToValue(final byte[] dbData) {
-    return UuidUtils.toUuid(dbData);
+    return UuidUtils.asUuid(dbData);
   }
 }

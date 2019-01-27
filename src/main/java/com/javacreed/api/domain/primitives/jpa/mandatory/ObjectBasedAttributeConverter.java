@@ -17,7 +17,7 @@ public abstract class ObjectBasedAttributeConverter<T extends ObjectBasedDomainP
     implements AttributeConverter<T, D> {
 
   protected D convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.getValue();
+    return attribute.get();
   }
 
   protected D convertNullToDatabaseColumn() {
