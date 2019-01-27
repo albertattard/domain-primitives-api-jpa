@@ -44,7 +44,7 @@
 		<reports.version>2.9</reports.version>
 		<google.guava.version>27.0.1-jre</google.guava.version>
 		<javax.persistence.version>2.2</javax.persistence.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13-beta-1</junit.version>
 	</properties>
 
 	<dependencyManagement>
