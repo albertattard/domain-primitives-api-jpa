@@ -13,7 +13,7 @@ public abstract class LocalDateBasedAttributeConverter<T extends LocalDateBasedD
 
   @Override
   protected Date convertNotNullToDatabaseColumn(final T attribute) {
-    return attribute.toSqlDate();
+    return attribute.asSqlDate();
   }
 
   @Override
