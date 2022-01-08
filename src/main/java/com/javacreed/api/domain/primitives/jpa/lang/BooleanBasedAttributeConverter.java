@@ -9,7 +9,7 @@ public abstract class BooleanBasedAttributeConverter<T extends BooleanBasedDomai
 
   @Override
   public Boolean convertToDatabaseColumn(final T attribute) {
-    return attribute == null ? null : attribute.getValue();
+    return attribute == null ? null : attribute.get();
   }
 
   @Override
